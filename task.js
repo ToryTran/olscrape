@@ -250,7 +250,7 @@ async function main() {
   await readCompanyUrl();
   await readScrapedCompanies();
   console.log('TOTAL Company url: ', companyUrl.size);
-  console.log('TOTAL Scaped Company url: ', scrapedCompanyId.size);
+  console.log('TOTAL Scraped Company url: ', scrapedCompanyId.size);
   do {
     for (let task of tasks) {
       const jobId = hash(task);
