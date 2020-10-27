@@ -1,0 +1,23 @@
+{
+  "name": "olscrape",
+  "version": "1.0.0",
+  "description": "",
+  "engines": {
+    "npm": ">=6.4.1",
+    "node": ">=10.13.0"
+  },
+  "author": "tient",
+  "license": "MIT",
+  "scripts": {
+    "crawl": "node crawl.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql": "^2.18.1",
+    "object-hash": "^2.0.3",
+    "puppeteer": "^5.3.1",
+    "winston": "^3.3.3",
+    "winston-daily-rotate-file": "^4.5.0"
+  },
+  "devDependencies": {}
+}
