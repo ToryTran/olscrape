@@ -8,7 +8,7 @@ yarn.lock
 data
 data_private
 links
-config.js
+# config.js
 run_log
 run_log_2
 run_log_private
