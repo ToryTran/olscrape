@@ -15,6 +15,15 @@ const loggers = initLog();
 
 const browserOption = {
   headless: false,
+  // executablePath: '/snap/chromium/1350/usr/lib/chromium-browser/chrome',
+  // executablePath: '/opt/google/chrome/google-chrome',
+  // product: 'firefox',
+  // extraPrefsFirefox: {
+  // Enable additional Firefox logging from its protocol implementation
+  // 'remote.log.level': 'Trace',
+  // },
+  // Make browser logs visible
+  // dumpio: true,
   devtools: false,
   ignoreHTTPSErrors: true,
   slowMo: 0,
