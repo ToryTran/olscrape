@@ -1,3 +1,30 @@
+# data
+
+package-lock.json
+yarn.lock
+*.exe
+*.cmd
+*.bat
+data
+data_private
+links
+config.js
+run_log
+run_log_2
+run_log_private
+data_detail
+server
+url
+insertDB.js
+error.log
+docs.md
+company_info
+company_info_run_log
+company_info_run_log_1
+company_info_run_log_2
+company_info_run_log_3
+
+
 # Logs
 logs
 *.log
