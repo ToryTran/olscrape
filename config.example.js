@@ -1,21 +1,9 @@
 exports.getUserCredential = () => {
-  return {
-    email: "**********.com",
-    password: "********",
-  };
+  return {};
 };
 
 exports.getListTask = () => {
-  return [
-    {
-      email: "pyde......r.com",
-      password: "t.....25",
-      range: {
-        start: 8000000,
-        end: 10295242,
-      },
-    },
-  ];
+  return [];
 };
 
 exports.getUserAgentsList = () => {
@@ -33,4 +21,14 @@ exports.getUserAgentsList = () => {
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:64.0) Gecko/20100101 Firefox/64.0",
     "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.0 Safari/537.36",
   ];
+};
+
+exports.dbInfo = () => {
+  return {
+    host: "ieee-db.czonaws.com",
+    database: "db",
+    port: 3306,
+    user: "admin",
+    password: "",
+  };
 };
