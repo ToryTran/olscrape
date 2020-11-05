@@ -9,7 +9,7 @@
   "author": "tient",
   "license": "MIT",
   "scripts": {
-    "crawl": "node crawl.js"
+    "crawl": "node task.js"
   },
   "dependencies": {
     "express": "^4.17.1",
