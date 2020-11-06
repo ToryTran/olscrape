@@ -10,3 +10,7 @@ exports.getSourceIds = (range) => {
 exports.countRecords = (table = "owler_companies") => {
   return `SELECT count(*) as qty from ${table}`;
 };
+
+exports.iinsertCompany = (table = "owler_companies") => {
+  return `SELECT count(*) as qty from ${table}`;
+};

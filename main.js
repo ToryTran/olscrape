@@ -1,11 +1,16 @@
-var express = require("express");
-var app = express();
-var fs = require("fs");
+const express = require("express");
+const app = express();
+const fs = require("fs");
 const settings = require("./config");
 const query = require("./queryDB");
-var mysql = require("mysql");
+const mysql = require("mysql");
+const logs = require("./logUtil").init();
+const bodyParser = require("body-parser");
 
-var connection = mysql.createConnection(settings.dbInfo());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+const connection = mysql.createConnection(settings.dbInfo());
 connection.connect();
 
 const dbQuery = async (queryString) => {
@@ -33,6 +38,29 @@ app.get("/report", async function (req, res) {
       </html>
     `
   );
+});
+
+app.post("/company", async function (req, res) {
+  const company = req.body;
+  logs.company.info({ company });
+  res.send({ status: true });
+});
+
+app.post("/insert-company", async function (req, res) {
+  const company = req.body;
+  logs.company.info({ company });
+  try {
+    var sql = "INSERT INTO owler_company_detail (id), address) VALUES ?";
+    var values = [[123, "Sideway 1633"]];
+    connection.query(sql, [values], function (err, result) {
+      if (err) throw err;
+      console.log("Number of records inserted: " + result.affectedRows);
+    });
+
+    res.send({ status: true });
+  } catch (error) {
+    res.send({ status: false, error });
+  }
 });
 
 app.get("/query", async function (req, res) {
