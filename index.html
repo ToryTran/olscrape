@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Webscraping</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+  <h3>The progress status</h3>
+  <label for="file">Downloading progress:  <span id="teamName">....</span></label>
+  <br>
+  <progress id="file" value="32" max="100" style="width: 100%"> 32% </progress>
+  <iframe id="owler-if" src="https://www.owler.com/company/emc" title="description" height="200" width="300"></iframe>
+  <script>
+    (function() {
+      console.log(document.getElementById('owler-if').contentWindow.document.body.innerHTML);
+      // setInterval(function refreshDarkSky() {
+      //   var oiframe = document.getElementById('owler-if');
+      //   oiframe.setAttribute("src","https://www.owler.com/company/emc"); 
+      //   oiframe.contentWindow.location.reload(true);
+      //       }, 10000);
+  //     axios
+  // .get('https://www.owler.com/company/emc', {
+  //   headers: {
+  //     authorization:
+  //       'Bearer 7eLqrb23YVpSt2F0FeBToM-YkTUohFxbSbhkhXvCOjKiQneid3NUxnEbbPLhn_ZT_2CCm50KUsMoqsH8rM_WiUOqiUvIwtlOAC-DB7fkZ_Y',
+  //       "user-agent": 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36'
+  //   },
+  // })
+  // .then((res) => {
+  //   console.log(res.data);
+  // })
+  // .catch((error) => {
+  //   console.error(error);
+  // });
+
+})();
+
+  </script>
+</body>
+</html>

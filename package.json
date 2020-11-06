@@ -12,10 +12,13 @@
     "crawl": "node task.js"
   },
   "dependencies": {
+    "axios": "^0.21.0",
+    "axios-cloudflare": "^1.0.2",
     "express": "^4.17.1",
     "mysql": "^2.18.1",
     "object-hash": "^2.0.3",
     "puppeteer": "^5.3.1",
+    "request": "^2.88.2",
     "winston": "^3.3.3",
     "winston-daily-rotate-file": "^4.5.0"
   },
