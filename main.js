@@ -65,14 +65,25 @@ app.post('/insert-company', async function (req, res) {
   const companyInfo = req.body;
   logs.company.info({ companyInfo });
   try {
-    var sql =
-      'INSERT ignore INTO owler_company_detail (id, name, raw) VALUES (?, ? , ?)';
-    var values = [
-      companyInfo.id,
-      companyInfo.name,
-      JSON.stringify(companyInfo),
-    ];
-    console.log(values);
+    var sql = `INSERT ignore INTO owler_company (id,
+        name,
+        short_name,
+        city,
+        state,
+        country,
+        zipcode,
+        website,
+        ownership,
+        total_funding,
+        team_name,
+        total_revenue,
+        total_employees,
+        ceo_name,
+        address,
+        logo,
+        description,
+        founded) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`;
+    var values = Object.values(companyInfo);
     connection.query(sql, values, function (err, result) {
       if (err) throw err;
       console.log('Number of records inserted: ' + result.affectedRows);
@@ -83,6 +94,7 @@ app.post('/insert-company', async function (req, res) {
     res.send({ status: false, error });
   }
 });
+
 app.get('/query', async function (req, res) {
   const { start, end } = req.query;
   if (!start || !end || Number(end) < Number(start))

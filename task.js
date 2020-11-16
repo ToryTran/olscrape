@@ -47,13 +47,13 @@ async function insertCompanyData(id, company) {
   try {
     // console.log('fetchCompanyDetail', company);
     const companyInfo = {
-      id: company.companyId,
+      id: Number(company.companyId),
       name: company.companyName,
       shortName: company.shortName,
       city: company.city,
       state: company.state,
       country: company.country,
-      zipcode: company.zipcode,
+      zipcode: Number(company.zipcode || '0'),
       website: company.website,
       ownership: company.ownership,
       totalFunding: company.totalFunding,
@@ -61,11 +61,11 @@ async function insertCompanyData(id, company) {
       totalRevenue: company.revenue,
       totalEmployees: company.employeeCount,
       ceoName: company.ceoDetail,
-      address: {
+      address: JSON.stringify({
         phone: company.phoneNumber,
         street1: company.street1Address,
         street2: '',
-      },
+      }),
       logo: company.logo,
       description: company.description || company.summarySection,
       founded: company.founded,

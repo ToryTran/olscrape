@@ -1,63 +1,19 @@
-const settings = require("./config");
-const mysql = require("mysql");
+const settings = require('./config');
+const mysql = require('mysql');
 
 const connection = mysql.createConnection(settings.dbInfo());
 connection.connect();
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
-const extraxData = async (results) => {
-  return new Promise((resolve, reject) => {
-    resolve(
-      results.forEach((r) => {
-        const e = JSON.parse(r.raw);
-        // console.log(e.id);
-        const tn = e.seoFriendlyCompanyProfileUrl.split("/");
-        return [
-          Number(e.id),
-          e.name,
-          e.shortName,
-          e.city,
-          e.state,
-          e.country,
-          Number(e.zipcode) || 0,
-          e.website,
-          e.ownership,
-          e.totalFunding,
-          e.teamName || tn[tn.length - 1],
-          e.totalRevenue,
-          e.totalEmployees,
-          e.ceoName || "",
-          JSON.stringify(e.address || "{}"),
-          e.logo,
-          e.description || e.descriptionForEmail,
-          e.founded,
-          200,
-        ];
-      })
-    );
-  });
-};
 function getObjectFromLog(data, id) {
   try {
     return JSON.parse(data);
   } catch (e) {
-    console.log(e, id, "-----", JSON.stringify(data), "-----");
+    console.log(e, id, '-----', JSON.stringify(data), '-----');
     return false;
   }
 }
-
-connection.query(
-  `INSERT ignore INTO owler_company_detail (id, name, raw) values (?, ?, ?)`,
-  [11, "name", JSON.stringify({ a: 1, b: 2 })],
-  function (error, results, fields) {
-    if (error) throw error;
-    console.log(results.insertId);
-  }
-);
-
-//
-return;
 
 (async () => {
   const limit = 500;
@@ -77,7 +33,7 @@ return;
               continue;
             }
             // console.log(e.id);
-            const tn = e.seoFriendlyCompanyProfileUrl.split("/");
+            const tn = e.seoFriendlyCompanyProfileUrl.split('/');
             d.push([
               Number(e.id),
               e.name,
@@ -92,8 +48,8 @@ return;
               e.teamName || tn[tn.length - 1],
               e.totalRevenue,
               e.totalEmployees,
-              e.ceoName || "",
-              JSON.stringify(e.address || "{}"),
+              e.ceoName || '',
+              JSON.stringify(e.address || '{}'),
               e.logo,
               e.description || e.descriptionForEmail,
               e.founded,
@@ -113,7 +69,7 @@ return;
         }
       );
     } catch (error) {
-      console.log("E --> ", error);
+      console.log('E --> ', error);
     }
   }
 
